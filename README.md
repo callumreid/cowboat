@@ -31,7 +31,7 @@ cowboat
 ### Options
 
 - `-n, --num-cows NUM`: Number of cows (1-5, default: 1)
-- `-b, --boat TYPE`: Type of boat (`raft`, `ship`, `yacht`, default: `raft`)
+- `-b, --boat TYPE`: Type of boat (`raft`, `ship`, `yacht`, `canoe`, `submarine`, `ferry`, `pirate`, `cruise`, default: `raft`)
 - `-s, --speed SPEED`: Animation speed in seconds (default: 0.1)
 
 ### Examples
@@ -48,6 +48,12 @@ cowboat -n 2 -b ship -s 0.2
 
 # Fast sailing raft
 cowboat -s 0.05
+
+# Pirate ship adventure
+cowboat -b pirate
+
+# Submarine dive
+cowboat -b submarine -s 0.15
 ```
 
 ## Boat Types
@@ -55,6 +61,11 @@ cowboat -s 0.05
 - **raft**: Simple wooden raft (default)
 - **ship**: Classic sailing ship with masts
 - **yacht**: Fancy modern yacht
+- **canoe**: Simple canoe for peaceful sailing
+- **submarine**: Underwater vessel with periscope
+- **ferry**: Multi-level passenger ferry
+- **pirate**: Pirate ship with skull and crossbones flag
+- **cruise**: Large luxury cruise ship
 
 ## Features
 

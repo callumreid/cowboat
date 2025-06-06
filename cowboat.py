@@ -14,8 +14,8 @@ def clear_screen():
     """Clear the terminal screen"""
     os.system('clear' if os.name == 'posix' else 'cls')
 
-def get_cow_boat_art(size=1.0, boat_type="raft"):
-    """Generate ASCII art for cow on boat with scaling"""
+def get_cow_boat_art(boat_type="raft"):
+    """Generate ASCII art for cow on boat"""
     
     boats = {
         "raft": [
@@ -46,6 +46,53 @@ def get_cow_boat_art(size=1.0, boat_type="raft"):
             "       (  ~~~~~~~~~~~  )",
             "        \\             /",
             "         ~~~~~~~~~~~~~"
+        ],
+        "canoe": [
+            "    ~~~~~~~~~~~~~~~~~~~",
+            "  /                   \\",
+            " (  =================  )",
+            "  \\___________________/",
+            "    ~~~~~~~~~~~~~~~~~~~"
+        ],
+        "submarine": [
+            "        __|__",
+            "       |  o  |",
+            "    ===|     |===",
+            "  (             )",
+            "   \\___________/",
+            "    ~~~~~~~~~~~"
+        ],
+        "ferry": [
+            "    ||     ||     ||",
+            "   _||_   _||_   _||_",
+            "  |               |",
+            "  |  ===========  |",
+            " (  =============== )",
+            "  \\_______________/",
+            "   ~~~~~~~~~~~~~~~"
+        ],
+        "pirate": [
+            "        ☠️",
+            "        /|\\",
+            "       / | \\",
+            "      /  |  \\",
+            "     /   |   \\",
+            "    ~~~~( )~~~~",
+            "        | |",
+            "      __|_|__",
+            "     (       )",
+            "      ~~~~~~~"
+        ],
+        "cruise": [
+            "   ||  ||  ||  ||  ||",
+            "  |                 |",
+            "  |  ============   |",
+            "  |  ============   |",
+            " (  ===============  )",
+            " |  ===============  |",
+            "(  =================  )",
+            " \\___________________/",
+            "  ~~~~~~~~~~~~~~~~~~~"
         ]
     }
     
@@ -59,35 +106,6 @@ def get_cow_boat_art(size=1.0, boat_type="raft"):
     
     boat_art = boats.get(boat_type, boats["raft"])
     
-    # Simple scaling by repeating characters or skipping lines
-    if size < 0.7:
-        # Make smaller by using condensed versions
-        cow_art = [
-            "   ^__^",
-            "   (oo)\\___",
-            "   (__)\\   )\\/\\",
-            "       ||--w |",
-            "       ||   ||"
-        ]
-        boat_art = [line[::2] if len(line) > 10 else line for line in boat_art[:3]]
-    elif size < 0.4:
-        cow_art = [
-            " ^__^",
-            " (oo)\\__",
-            " (__)\\  )",
-            "     ||-w",
-            "     || |"
-        ]
-        boat_art = [line[::3] if len(line) > 5 else line[:len(line)//2] for line in boat_art[:2]]
-    elif size < 0.2:
-        cow_art = [
-            "^__^",
-            "(oo)\\",
-            "(__)\\",
-            "   ||"
-        ]
-        boat_art = ["~~~~~"]
-    
     return cow_art + boat_art
 
 def animate_cowboat(num_cows=1, boat_type="raft", speed=0.1):
@@ -98,9 +116,8 @@ def animate_cowboat(num_cows=1, boat_type="raft", speed=0.1):
     for frame in range(terminal_height + 10):
         clear_screen()
         
-        # Calculate position and size
+        # Calculate position
         y_pos = terminal_height - frame
-        size = max(0.1, 1.0 - (frame / (terminal_height * 1.5)))
         
         if y_pos < -10:
             break
@@ -111,7 +128,7 @@ def animate_cowboat(num_cows=1, boat_type="raft", speed=0.1):
             x_offset = cow_idx * 30
             
             if x_offset < terminal_width:
-                cow_boat = get_cow_boat_art(size, boat_type)
+                cow_boat = get_cow_boat_art(boat_type)
                 
                 # Print each line of the cow boat art
                 for line_idx, line in enumerate(cow_boat):
@@ -137,7 +154,7 @@ def main():
     parser = argparse.ArgumentParser(description='Watch cows sail away on boats!')
     parser.add_argument('-n', '--num-cows', type=int, default=1, 
                        help='Number of cows (default: 1)')
-    parser.add_argument('-b', '--boat', choices=['raft', 'ship', 'yacht'], 
+    parser.add_argument('-b', '--boat', choices=['raft', 'ship', 'yacht', 'canoe', 'submarine', 'ferry', 'pirate', 'cruise'], 
                        default='raft', help='Type of boat (default: raft)')
     parser.add_argument('-s', '--speed', type=float, default=0.1,
                        help='Animation speed in seconds (default: 0.1)')
