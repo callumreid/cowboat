@@ -26,9 +26,10 @@ cowboat
 
 ### Options
 
-- `-n, --num-cows NUM`: Number of cows (1-5, default: 1)
+- `-n, --num-cows NUM`: Number of cows (1-5, default: 1) or boats for mini mode (1-10)
 - `-b, --boat TYPE`: Type of boat (`raft`, `ship`, `yacht`, `canoe`, `submarine`, `ferry`, `pirate`, `cruise`, default: `raft`)
 - `-s, --speed SPEED`: Animation speed in seconds (default: 0.1)
+- `--mini`: Use mini cows (3 adorable tiny cows per boat with closer spacing)
 
 ### Examples
 
@@ -50,6 +51,15 @@ cowboat -b pirate
 
 # Submarine dive
 cowboat -b submarine -s 0.15
+
+# Mini cow fleet! 3 tiny cows per boat
+cowboat --mini
+
+# Mini cow armada on pirate ships
+cowboat --mini -n 5 -b pirate -s 0.03
+
+# Peaceful mini cow cruise
+cowboat --mini -b canoe -n 2 -s 0.12
 ```
 
 ## Boat Types
@@ -65,9 +75,10 @@ cowboat -b submarine -s 0.15
 
 ## Features
 
-- ASCII art animation that scales as cows drift into the distance
-- Multiple boat types to choose from
+- ASCII art animation of cows sailing from bottom to top of terminal
+- Multiple boat types to choose from (8 different boats!)
 - Support for multiple cows sailing together
+- **Mini cow mode**: 3 adorable tiny cows per boat with closer spacing
 - Adjustable animation speed
 - Cross-platform terminal support
 
