@@ -1,18 +1,14 @@
 # 🐄 Cowboat 🚤
-
-A whimsical terminal animation inspired by `sl` and `cowsay` - watch cows sail away into the horizon on various boats!
+Watch cows sail away into the horizon on various boats!
 
 ## Installation
 
 ### Via Homebrew (Recommended)
 ```bash
-brew install cowboat
+brew install callumreid/cowboat/cowboat
 ```
 
-### Via pip
-```bash
-pip install cowboat
-```
+
 
 ### From Source
 ```bash
