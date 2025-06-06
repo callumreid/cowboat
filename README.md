@@ -1,0 +1,74 @@
+# 🐄 Cowboat 🚤
+
+A whimsical terminal animation inspired by `sl` and `cowsay` - watch cows sail away into the horizon on various boats!
+
+## Installation
+
+### Via Homebrew (Recommended)
+```bash
+brew install cowboat
+```
+
+### Via pip
+```bash
+pip install cowboat
+```
+
+### From Source
+```bash
+git clone https://github.com/yourusername/cowboat.git
+cd cowboat
+pip install .
+```
+
+## Usage
+
+Basic usage:
+```bash
+cowboat
+```
+
+### Options
+
+- `-n, --num-cows NUM`: Number of cows (1-5, default: 1)
+- `-b, --boat TYPE`: Type of boat (`raft`, `ship`, `yacht`, default: `raft`)
+- `-s, --speed SPEED`: Animation speed in seconds (default: 0.1)
+
+### Examples
+
+```bash
+# Single cow on a raft (default)
+cowboat
+
+# Three cows on a yacht
+cowboat -n 3 -b yacht
+
+# Slow animation with two cows on a ship
+cowboat -n 2 -b ship -s 0.2
+
+# Fast sailing raft
+cowboat -s 0.05
+```
+
+## Boat Types
+
+- **raft**: Simple wooden raft (default)
+- **ship**: Classic sailing ship with masts
+- **yacht**: Fancy modern yacht
+
+## Features
+
+- ASCII art animation that scales as cows drift into the distance
+- Multiple boat types to choose from
+- Support for multiple cows sailing together
+- Adjustable animation speed
+- Cross-platform terminal support
+
+## Requirements
+
+- Python 3.6+
+- Terminal with ANSI escape sequence support
+
+## License
+
+MIT License 
