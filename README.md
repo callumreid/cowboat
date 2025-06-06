@@ -29,7 +29,7 @@ cowboat
 - `-n, --num-cows NUM`: Number of cows (1-5, default: 1) or boats for mini mode (1-10)
 - `-b, --boat TYPE`: Type of boat (`raft`, `ship`, `yacht`, `canoe`, `submarine`, `ferry`, `pirate`, `cruise`, default: `raft`)
 - `-s, --speed SPEED`: Animation speed in seconds (default: 0.1)
-- `--mini`: Use mini cows (3 adorable tiny cows per boat with closer spacing)
+- `--mini`: Use mini cows (3 adorable cow emojis 🐄 per boat with closer spacing)
 
 ### Examples
 
@@ -52,7 +52,7 @@ cowboat -b pirate
 # Submarine dive
 cowboat -b submarine -s 0.15
 
-# Mini cow fleet! 3 tiny cows per boat
+# Mini cow fleet! 3 cow emojis per boat
 cowboat --mini
 
 # Mini cow armada on pirate ships
@@ -64,21 +64,21 @@ cowboat --mini -b canoe -n 2 -s 0.12
 
 ## Boat Types
 
-- **raft**: Simple wooden raft (default)
-- **ship**: Classic sailing ship with masts
-- **yacht**: Fancy modern yacht
-- **canoe**: Simple canoe for peaceful sailing
-- **submarine**: Underwater vessel with periscope
-- **ferry**: Multi-level passenger ferry
-- **pirate**: Pirate ship with skull and crossbones flag
-- **cruise**: Large luxury cruise ship
+- **raft**: Simple wooden raft with plank deck (default)
+- **ship**: Classic sailing ship with mast, sail, and proper deck
+- **yacht**: Modern yacht with cabin and main deck
+- **canoe**: Curved canoe where cows sit inside
+- **submarine**: Underwater vessel with periscope and command deck
+- **ferry**: Multi-level passenger ferry with realistic deck structure
+- **pirate**: Pirate ship with skull flag mast and deck below
+- **cruise**: Large luxury cruise ship with multiple decks
 
 ## Features
 
 - ASCII art animation of cows sailing from bottom to top of terminal
-- Multiple boat types to choose from (8 different boats!)
-- Support for multiple cows sailing together
-- **Mini cow mode**: 3 adorable tiny cows per boat with closer spacing
+- **8 realistic boat types** with proper decks where cows actually stand
+- Support for multiple cows sailing together (no more floating on masts!)
+- **Mini cow mode**: 3 adorable cow emojis 🐄 per boat with closer spacing
 - Adjustable animation speed
 - Cross-platform terminal support
 
