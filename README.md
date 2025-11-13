@@ -62,6 +62,56 @@ cowboat --mini -n 5 -b pirate -s 0.03
 cowboat --mini -b canoe -n 2 -s 0.12
 ```
 
+## Don't forget to update your `.zshrc` or shell of choice to make all git pushes set them heiffers a sail!
+```
+ # Cowboat push celebrations triggered by any git push
+  if ! typeset -f git >/dev/null; then
+    git() {
+      local subcmd=$1
+      shift || true
+
+      if [[ $subcmd != "push" ]]; then
+        command git "$subcmd" "$@"
+        return $?
+      fi
+
+      local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+      branch=${branch:-unknown}
+      echo "🚀 Pushing to branch: $branch"
+
+      command git push "$@"
+      local status=$?
+
+      if [[ $status -eq 0 ]]; then
+        local force=false
+        for arg in "$@"; do
+          case $arg in
+            --force|-f|--force-with-lease|--force-with-lease=*) force=true ;;
+          esac
+        done
+
+        if $force; then
+          echo "💥 Force push success! Dispatching the ultimate cowboat..."
+          cowboat -b pirate -n 5 -s 0.03
+        else
+          echo "✅ Push successful! Celebrating with cowboat..."
+          local boats=(raft ship yacht canoe submarine ferry pirate cruise)
+          local random_boat=${boats[$RANDOM % ${#boats[@]}]}
+          local random_cows=$((RANDOM % 5 + 1))
+          local random_speed=$(echo "scale=2; (($RANDOM % 11) + 2) / 100" | bc)
+          echo "🎉 Sailing with $random_cows cow(s) on a $random_boat at speed
+  $random_speed!"
+          cowboat -b "$random_boat" -n "$random_cows" -s "$random_speed"
+        fi
+      else
+        echo "❌ Push failed. Cowboat stays docked."
+      fi
+
+      return $status
+    }
+  fi
+```
+
 ## Boat Types
 
 - **raft**: Simple wooden raft with plank deck (default)
